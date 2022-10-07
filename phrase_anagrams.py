@@ -11,7 +11,7 @@ dict_file = sorted(dict_file)
 ini_name = input("Enter a name: ")
 
 def find_anagrams(name, word_list):
-    """Read name & dictionary file & display all anagrams IN name."""
+    """Read name & dictionary file & display all anagrams in name."""
     name_letter_map = Counter(name)
     anagrams = []
 
