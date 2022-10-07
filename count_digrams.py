@@ -3,12 +3,12 @@ from collections import Counter
 import load_dictionary
 
 def main():
-    word = 'tmvoordle'
+    word = 'voldemort'
 
     #load words from dictionary
     dict_file = load_dictionary.load('2of4brif.txt')
 
-    #find digrams in 'tmvoordle'
+    #find digrams in 'voldemort'
     digrams = set()
     for i in range(len(word)):
         for j in range(len(word)):
@@ -20,8 +20,16 @@ def main():
     print("Number of digrams is: {}".format(len(digrams)))
 
     #count frequency of occurrence of digrams in dictionary file
-    #to use Counter need a list e.g ['de', 'dl', 'dm', 'de']
-    #can't use 'for digram in word' because this won't work with volvo 
+    frequency_list = []
+    for word in dict_file:
+        for digram in digrams:
+            for i in range(len(word) - 1):
+                if word[i:i+2] == digram:
+                    frequency_list.append(digram)
+
+    digram_count = Counter(frequency_list)
+
+    print(digram_count)
 
 
 if __name__ == '__main__':
